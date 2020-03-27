@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import Hello from './components/Hello';
 import './App.css';
+import LikeButton from './components/LikeButton';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
+        <LikeButton />
         <Hello message="Hello World 2"/>
         <a
           className="App-link"
