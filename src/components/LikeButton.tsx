@@ -3,8 +3,9 @@ const LikeButton: React.FC = () => {
     const [like, setLike] = useState(0);
     const [on, setOn] = useState(true);
     useEffect(() => {
+        console.log('document title effect is running')
         document.title = `clicked ${like}`;
-    })
+    }, [like])
     return (
         <>
         <button onClick={() => {setLike(like + 1)}}>

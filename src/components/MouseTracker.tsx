@@ -14,7 +14,8 @@ const MouseTracker: React.FC = () => {
             console.log('remove effect', positions.x)
             document.removeEventListener('click', updateMouse);
         }
-    })
+    },[]); //[] 可以使得每次在挂载和卸载的时候添加/删除事件，而非每次渲染的时候
+
     console.log('before render', positions.x);
     return (
     <p>X: {positions.x}, Y: {positions.y}</p>
