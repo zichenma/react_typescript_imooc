@@ -8,6 +8,11 @@ const LikeButton: React.FC = () => {
         console.log('document title effect is running')
         document.title = `clicked ${like}`;
     }, [like])
+    function handleAlterClick() {
+        setTimeout(() => {
+            alert(`you clicked on ${like}`);
+        }, 3000)
+    }
     return (
         <>
          <h2>X: {positions.x}, Y: {positions.y}</h2>
@@ -16,6 +21,9 @@ const LikeButton: React.FC = () => {
         </button>
         <button onClick={() => {setOn(!on)}}>
             {on ? 'ON' : 'OFF'} 👍
+        </button>
+        <button onClick={handleAlterClick}>
+            Alert!
         </button>
         </>
     )
