@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
+import { ThemeContext } from '../App';
 import useMousePosition from '../hooks/useMousePosition';
 const LikeButton: React.FC = () => {
     const [like, setLike] = useState(0);
@@ -9,6 +10,11 @@ const LikeButton: React.FC = () => {
     const likeRef = useRef(0);
     const didMountRef = useRef(false);
     const domRef = useRef<HTMLInputElement>(null);
+    const theme = useContext(ThemeContext);
+    const style = {
+        background: theme.background,
+        color: theme.color,
+    };
     const [on, setOn] = useState(true);
     const positions = useMousePosition();
     useEffect(() => {
@@ -41,7 +47,7 @@ const LikeButton: React.FC = () => {
         <button onClick={() => {setLike(like + 1); likeRef.current++}}>
             {like} 👍
         </button>
-        <button onClick={() => {setOn(!on)}}>
+        <button style={style} onClick={() => {setOn(!on)}}>
             {on ? 'ON' : 'OFF'} 👍
         </button>
         <button onClick={handleAlterClick}>
